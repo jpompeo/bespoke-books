@@ -1,7 +1,12 @@
 import React from 'react';
+import '../css/Sidebar.css';
 
 const Sidebar = () => {
-    // TODO
+    return (
+        <div id="sidebar">
+            <h2>Sidebar</h2>
+        </div>
+    )
     
 }
 
