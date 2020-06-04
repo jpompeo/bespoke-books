@@ -20,6 +20,11 @@
     border: 2px solid #6F6E6E;
 }
 
+#sidebar button:hover {
+    background-color: #4B4B4B;
+    border: 2px solid #D1D1D1;
+}
+
 #sidebar p {
     text-align: center;
     font-style: italic;

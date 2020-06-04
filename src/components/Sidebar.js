@@ -56,10 +56,7 @@ const Sidebar = () => {
           <Form>
             <Form.Group controlId="searchBooks">
               <Form.Label>Search by Book</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Book Title or Author"
-              />
+              <Form.Control type="text" placeholder="Enter Title or Author" />
             </Form.Group>
           </Form>
 
