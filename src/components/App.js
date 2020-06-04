@@ -22,12 +22,12 @@ const App = () => {
       {/* Main Page */}
       <Row id="main">
         {/* SideBar */}
-        <Col md={3} className="left-side">
+        <Col lg={3} className="left-side">
           <Sidebar />
         </Col>
 
         {/* Current View */}
-        <Col md={9} className="right-side">
+        <Col lg={9} className="right-side">
           <Switch>
             {/* Default/List View */}
             <Route exact path={["/", "/books"]} component={BookList} />
