@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import Multiselect from "react-widgets/lib/Multiselect";
 
 import "../css/RecommendationForm.css";
+import "react-widgets/dist/css/react-widgets.css";
 
 let state = {
   tagList: [
