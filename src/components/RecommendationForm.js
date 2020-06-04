@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Multiselect from "react-widgets/lib/Multiselect";
+
 import "../css/RecommendationForm.css";
 
 let state = {

@@ -82,9 +82,9 @@ const BookDetail = () => {
         <Col>
           <hr />
           {/* Form to Add Recommendations (hidden by default) */}
-          <div className="hide">
-            <RecommendationForm />
-          </div>
+          {/* <div className="hide"> */}
+          <RecommendationForm />
+          {/* </div> */}
 
           {/* List of recommendations for current book */}
           <div id="detail-recommendations">{detailRecommendations}</div>
