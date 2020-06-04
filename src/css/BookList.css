@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-list-thumb {
+  height: 200px;
+  border: 1px solid blue;
+}
+
+ul.list-covers {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.list-covers li {
+  list-style-type: none;
+  display: inline-block;
+  width: 180px;
+  border: 1px solid blue;
+}
+
+.book-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  margin: 10px;
+}
