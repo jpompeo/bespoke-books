@@ -1,34 +1,28 @@
-import React from 'react';
-import { Switch, Router } from 'react-router-dom'
-
-
+import React from "react";
+import { Switch, Router } from "react-router-dom";
 
 const App = () => {
-    return (
-        <h1>Bespoke Books</h1>
-    )
+  return <h1>Bespoke Books</h1>;
 
+  // return (
 
-    // return (
+  //     <div id="app-view">
 
-    //     <div id="app-view">
+  //     <header>
 
-    //     <header>
+  //     </header>
 
-    //     </header>
+  //     <Sidebar />
 
-    //     <Sidebar />
+  //      {/* to direct which component to display based on url path */}
+  //      <Switch>
 
-    //      {/* to direct which component to display based on url path */}
-    //      <Switch>
+  //     <BookList />
+  //     <BookDetail />
 
-    //     <BookList />
-    //     <BookDetail />
+  //     </div>
 
-    //     </div>
-
-    // )
-
-}
+  // )
+};
 
 export default App;
