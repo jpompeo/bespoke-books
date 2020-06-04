@@ -1,0 +1,53 @@
+.flex-container {
+  display: block;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.book-list-thumb {
+  height: 200px;
+}
+
+ul.list-covers {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.list-covers li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.book-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  margin: 5px 10px;
+}
+
+.book-container img {
+  width: 100%;
+}
+
+.book-container img:hover {
+  border: 1px solid #ababab;
+}
+
+.book-thumb-info {
+  display: none;
+}
+
+.filters-applied {
+  display: none;
+}
+
+.filter {
+  display: inline-block;
+  border: 1px solid #ababab;
+  border-radius: 5px;
+}
