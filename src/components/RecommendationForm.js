@@ -2,7 +2,9 @@ import React from 'react';
 import '../css/RecommendationForm.css';
 
 const RecommendationForm = () => {
-    // TODO
+    return (
+        <h1>Form</h1>
+    )
 }
 
 export default RecommendationForm;

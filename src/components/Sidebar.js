@@ -43,7 +43,7 @@ const Sidebar = () => {
   const listOfTags = tags.map((tag) => {
     return (
       <li>
-        <Button> {tag} </Button>
+        <Button type="button"> {tag} </Button>
       </li>
     );
   });
