@@ -17,13 +17,13 @@ const BookList = () => {
       <div className="flex-container">
         <Row className="noGutters">
           <ul className="list-covers">
-            <li className="book-container" data>
+            <li className="book-container">
               <a href="#">
                 <img src="https://m.media-amazon.com/images/I/51TA3VfN8RL.jpg" />
-                <div class="book-thumb-info">
+                <div className="book-thumb-info">
                   <h1>Harry Potter and the Chamber of Secrets</h1>
-                  <p class="book-author-thumb">J.K. Rowling</p>
-                  <p class="short-description">
+                  <p className="book-author-thumb">J.K. Rowling</p>
+                  <p className="short-description">
                     In Harry Potter and the Chamber of Secrets, the summer after
                     Harry's first year at Hogwarts has been his worst summer
                     ever ... the Dursleys more distant and horrible than ever
@@ -36,10 +36,10 @@ const BookList = () => {
               <a href="#">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/81-y8fgFTTL.jpg" />
               </a>
-              <div class="book-thumb-info">
+              <div className="book-thumb-info">
                 <h1>Harry Potter and the Chamber of Secrets</h1>
-                <p class="book-author-thumb">J.K. Rowling</p>
-                <p class="short-description">
+                <p className="book-author-thumb">J.K. Rowling</p>
+                <p className="short-description">
                   In Harry Potter and the Chamber of Secrets, the summer after
                   Harry's first year at Hogwarts has been his worst summer ever
                   ... the Dursleys more distant and horrible than ever before
@@ -50,10 +50,10 @@ const BookList = () => {
               <a href="#">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/81wLeKWJmrL.jpg" />
               </a>
-              <div class="book-thumb-info">
+              <div className="book-thumb-info">
                 <h1>Harry Potter and the Chamber of Secrets</h1>
-                <p class="book-author-thumb">J.K. Rowling</p>
-                <p class="short-description">
+                <p className="book-author-thumb">J.K. Rowling</p>
+                <p className="short-description">
                   In Harry Potter and the Chamber of Secrets, the summer after
                   Harry's first year at Hogwarts has been his worst summer ever
                   ... the Dursleys more distant and horrible than ever before
@@ -64,10 +64,10 @@ const BookList = () => {
               <a href="#">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/71yP-dPa0mL.jpg" />
               </a>
-              <div class="book-thumb-info">
+              <div className="book-thumb-info">
                 <h1>Harry Potter and the Chamber of Secrets</h1>
-                <p class="book-author-thumb">J.K. Rowling</p>
-                <p class="short-description">
+                <p className="book-author-thumb">J.K. Rowling</p>
+                <p className="short-description">
                   In Harry Potter and the Chamber of Secrets, the summer after
                   Harry's first year at Hogwarts has been his worst summer ever
                   ... the Dursleys more distant and horrible than ever before
@@ -79,10 +79,10 @@ const BookList = () => {
               <a href="#">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/81wLeKWJmrL.jpg" />
               </a>
-              <div class="book-thumb-info">
+              <div className="book-thumb-info">
                 <h1>Harry Potter and the Chamber of Secrets</h1>
-                <p class="book-author-thumb">J.K. Rowling</p>
-                <p class="short-description">
+                <p className="book-author-thumb">J.K. Rowling</p>
+                <p className="short-description">
                   In Harry Potter and the Chamber of Secrets, the summer after
                   Harry's first year at Hogwarts has been his worst summer ever
                   ... the Dursleys more distant and horrible than ever before
@@ -99,10 +99,10 @@ const BookList = () => {
               <a href="#">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/71yP-dPa0mL.jpg" />
               </a>
-              <div class="book-thumb-info">
+              <div className="book-thumb-info">
                 <h1>Harry Potter and the Chamber of Secrets</h1>
-                <p class="book-author-thumb">J.K. Rowling</p>
-                <p class="short-description">
+                <p className="book-author-thumb">J.K. Rowling</p>
+                <p className="short-description">
                   In Harry Potter and the Chamber of Secrets, the summer after
                   Harry's first year at Hogwarts has been his worst summer ever
                   ... the Dursleys more distant and horrible than ever before
