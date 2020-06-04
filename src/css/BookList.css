@@ -1,10 +1,8 @@
 .flex-container {
-  display: flex;
+  display: block;
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex: 1;
 }
 
 .book-list-thumb {
@@ -13,7 +11,7 @@
 }
 
 ul.list-covers {
-  display: block;
+  display: inline-flex;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -21,7 +19,8 @@ ul.list-covers {
 
 .list-covers li {
   list-style-type: none;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   width: 180px;
   border: 1px solid blue;
 }
@@ -35,4 +34,8 @@ ul.list-covers {
 
 .book-container img {
   width: 100%;
+}
+
+.book-thumb-info {
+  display: none;
 }
