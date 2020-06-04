@@ -7,7 +7,6 @@
 
 .book-list-thumb {
   height: 200px;
-  border: 1px solid blue;
 }
 
 ul.list-covers {
@@ -22,7 +21,6 @@ ul.list-covers {
   display: flex;
   flex-direction: column;
   width: 180px;
-  border: 1px solid blue;
 }
 
 .book-container {
@@ -36,6 +34,20 @@ ul.list-covers {
   width: 100%;
 }
 
+.book-container img:hover {
+  border: 1px solid #ababab;
+}
+
 .book-thumb-info {
   display: none;
+}
+
+.filters-applied {
+  display: none;
+}
+
+.filter {
+  display: inline-block;
+  border: 1px solid #ababab;
+  border-radius: 5px;
 }
