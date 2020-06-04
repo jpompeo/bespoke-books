@@ -1,28 +1,44 @@
 import React from "react";
-import { Switch, Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
+import BookList from "./BookList";
+import BookDetail from "./BookDetail";
+import Sidebar from "./Sidebar";
+import "../css/App.css";
 
 const App = () => {
-  return <h1>Bespoke Books</h1>;
+  return (
+    <Container id="app-view">
+      {/* Header */}
+      <Row id="header">
+        <Col>
+          <header>
+            <h1>Bespoke Books</h1>
+          </header>
+          <hr />
+        </Col>
+      </Row>
 
-  // return (
+      {/* Main Page */}
+      <Row id="main">
+        {/* SideBar */}
+        <Col md={3} className="left-side">
+          <Sidebar />
+        </Col>
 
-  //     <div id="app-view">
+        {/* Current View */}
+        <Col md={9} className="right-side">
+          <Switch>
+            {/* Default/List View */}
+            <Route exact path={["/", "/books"]} component={BookList} />
 
-  //     <header>
-
-  //     </header>
-
-  //     <Sidebar />
-
-  //      {/* to direct which component to display based on url path */}
-  //      <Switch>
-
-  //     <BookList />
-  //     <BookDetail />
-
-  //     </div>
-
-  // )
+            {/* Single Book/Detail View */}
+            <Route path={"/books/:isbn"} component={BookDetail} />
+          </Switch>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default App;
