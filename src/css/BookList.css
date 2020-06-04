@@ -1,7 +1,10 @@
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
 }
 
 .book-list-thumb {
@@ -13,6 +16,7 @@ ul.list-covers {
   display: block;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .list-covers li {
@@ -26,5 +30,9 @@ ul.list-covers {
   position: relative;
   width: 100%;
   display: inline-block;
-  margin: 10px;
+  margin: 5px 10px;
+}
+
+.book-container img {
+  width: 100%;
 }
