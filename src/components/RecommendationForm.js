@@ -1,8 +1,43 @@
-import React, { Component } from "react";
+import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Multiselect from "react-widgets/lib/Multiselect";
-import { addRecommendation } from "../actions";
 import "../css/RecommendationForm.css";
+
+let state = {
+  tagList: [
+    "Adventure",
+    "Belief",
+    "Forgiveness",
+    "Decisions",
+    "Death & Dying",
+    "Love",
+    "Acceptance",
+    "Courage",
+    "Change",
+    "Empathy",
+    "Overcoming Adversity",
+    "Pressure",
+    "Friendship",
+    "Sacrifice",
+    "The Bonds of Family",
+    "Suffering",
+    "Conflict",
+    "Abandonment",
+    "Alienation",
+    "Ambition",
+    "Coming of Age",
+    "Freedom",
+    "Gender",
+    "Justice",
+    "Isolation",
+    "Cruelty",
+    "Fate",
+    "Hope",
+    "Guilt",
+    "Black Lives Matter",
+    "LGBTQ Pride",
+  ],
+};
 
 const renderMultiselect = ({ input, data, valueField, textField }) => (
   <Multiselect
@@ -15,7 +50,8 @@ const renderMultiselect = ({ input, data, valueField, textField }) => (
   />
 );
 
-const RecommendationForm = (props) => {
+let RecommendationForm = (props) => {
+  // used later by redux-form in render
   const renderField = (field) => {
     const {
       meta: { touched, error },
@@ -37,18 +73,18 @@ const RecommendationForm = (props) => {
     <div>
       <form onSubmit={handleSubmit}>
         <Field
-          label="Why you recommend this book"
+          label="Why do you recommend this book?"
           name="text"
           component={renderField}
         />
         <Field label="Your name" name="user" component={renderField} />
 
         <div>
-          <label>Hobbies</label>
+          <label>tags</label>
           <Field
-            name="hobbies"
+            name="tags"
             component={renderMultiselect}
-            data={["Guitar", "Cycling", "Hiking"]}
+            data={[...state.tagList]}
           />
         </div>
 
@@ -70,8 +106,8 @@ function validate(values) {
   if (!values.user) {
     errors.user = "Enter a user name";
   }
-  if (!values.content) {
-    errors.content = "Enter some content please";
+  if (!values.tags) {
+    errors.tags = "Choose at least one tag";
   }
 
   // If errors is empty, the form is fine to submit
@@ -79,7 +115,7 @@ function validate(values) {
   return errors;
 }
 
-const newRecommendationForm = reduxForm({
+RecommendationForm = reduxForm({
   validate,
   form: "RecommendationForm",
 })(RecommendationForm);
