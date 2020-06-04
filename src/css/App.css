@@ -1,3 +1,7 @@
 .left-side, .right-side {
     border: solid 2px black;
 }
+
+/* #app-view {
+    margin: 0;
+} */
