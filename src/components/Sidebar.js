@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import "../css/Sidebar.css";
 import _ from "lodash";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import { bindActionCreators, connect } from "react-redux";
-import { searchBook } from "./actions/index";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { searchBook } from "../actions/index";
 
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      searchTerm: "",
+    };
 
     this.listOfTags = this.listOfTags.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
