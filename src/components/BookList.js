@@ -18,7 +18,7 @@ class BookList extends Component {
   fetchBooks() {
     // check if any tags were passed
 
-    const uniqueBooks = _.uniqBy(this.props.recommendations, "ISBN");
+    const uniqueBooks = _.uniqBy(this.props.recommendations, "id");
 
     console.log(uniqueBooks);
 
@@ -41,8 +41,8 @@ class BookList extends Component {
     // from those unique books, filter based on tag
     return filteredBooks.map((book) => {
       return (
-        <li className="book-container" key={book.ISBN}>
-          <Link to={`/books/${book.ISBN}`}>
+        <li className="book-container" key={book.id}>
+          <Link to={`/books/${book.id}`}>
             <img src={book.image} />
           </Link>
         </li>
@@ -56,8 +56,7 @@ class BookList extends Component {
       if (book.volumeInfo.hasOwnProperty("imageLinks")) {
         return (
           <li className="book-container">
-            <Link
-              to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
+            <Link to={`/books/${book.id}`}>
               <img src={book.volumeInfo.imageLinks.thumbnail} />
             </Link>
           </li>
