@@ -10,40 +10,10 @@ class BookDetail extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   title: "Hi",
-    //   book: {
-    //     title: "",
-    //     author: "JK Rowling",
-    //     id: "aDdyDwAAQBAJ",
-    //     image: "https://m.media-amazon.com/images/I/51TA3VfN8RL.jpg",
-    //     description:
-    //       "'There is a plot, Harry Potter. A plot to make most terrible things happen at Hogwarts School of Witchcraft and Wizardry this year.' Harry Potter's summer has included the worst birthday ever, doomy warnings from a house-elf called Dobby, and rescue from the Dursleys by his friend Ron Weasley in a magical flying car! Back at Hogwarts School of Witchcraft and Wizardry for his second year, Harry hears strange whispers echo through empty corridors - and then the attacks start. Students are found as though turned to stone... Dobby's sinister predictions seem to be coming true.",
-    //     tags: ["Friendship", "Adventure"],
-    //     recommendations: [
-    //       {
-    //         user: "Pierre",
-    //         text:
-    //           "Despite not normally being a fan of fantasy, I loved the friendship between Harry, Ron, and Hermione.",
-    //         id: "aDdyDwAAQBAJ",
-    //         tags: ["Friendship"],
-    //       },
-    //       {
-    //         user: "Pierre",
-    //         text:
-    //           "Despite not normally being a fan of fantasy, I loved the friendship between Harry, Ron, and Hermione.",
-    //         id: "aDdyDwAAQBAJ",
-    //         tags: ["Friendship"],
-    //       },
-    //     ],
-    //   },
-    // };
-
     this.printBook = this.printBook.bind(this);
   }
 
   componentDidMount() {
-    // we want to grab the ID from the URL so that if someone enters from a URL, it will work
     this.props.searchBook(this.props.id);
   }
 
@@ -56,10 +26,6 @@ class BookDetail extends Component {
       );
     });
   }
-
-  // iterate through tags and return mapped results as html elements
-
-  //iterate through recommendations and return mapped results as html elements
 
   detailRecommendations() {
     return this.state.book.recommendations.map((recommendation) => {
@@ -80,13 +46,13 @@ class BookDetail extends Component {
       <Row>
         {/* Book Detail Info */}
         <Col lg={6} id="detail-info">
-          <h1 id="detail-title">{this.state.title}</h1>
+          <h1 id="detail-title">{this.props.title}</h1>
           <p id="detail-author">
-            <em>by</em> {this.state.book.author}
+            <em>by</em> {this.props.author}
           </p>
-          <p id="detail-description">{this.state.book.description}</p>
+          <p id="detail-description">{this.props.description}</p>
           <p id="detail-isbn">
-            <strong>ISBN:</strong> {this.state.book.isbn}
+            <strong>ISBN:</strong> {this.props.ISBN}
           </p>
 
           <ul>
@@ -98,10 +64,7 @@ class BookDetail extends Component {
 
         {/* Book Detail Image */}
         <Col lg={6} id="detail-image-col">
-          <img
-            src={this.state.book.image}
-            alt={`Cover of ${this.state.book.title}`}
-          />
+          <img src={this.props.image} alt={`Cover of ${this.props.title}`} />
 
           {/* Add recommendation Button  */}
           <div id="add-recommendation">
@@ -113,8 +76,6 @@ class BookDetail extends Component {
   }
 
   render() {
-    console.log("Props at render are", this.props);
-
     return (
       <Row id="main" className="justify-content-md-center">
         <Col lg={10}>
@@ -144,11 +105,23 @@ class BookDetail extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log("state is", state);
-  return {
-    book: state.book,
-    id: ownProps.match.params.id,
-  };
+  console.log("state is", state.book[0]);
+
+  if (state.book[0]) {
+    return {
+      book: state.book[0],
+      title: state.book[0].volumeInfo.title,
+      author: state.book[0].volumeInfo.authors[0] || "",
+      description: state.book[0].volumeInfo.description,
+      image: state.book[0].volumeInfo.imageLinks.thumbnail,
+      isbn: state.book[0].volumeInfo.industryIdentifiers[0].identifier,
+      id: ownProps.match.params.id,
+    };
+  } else {
+    return {
+      id: ownProps.match.params.id,
+    };
+  }
 }
 
 function mapDispatchToProps(dispatch) {

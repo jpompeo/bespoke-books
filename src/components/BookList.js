@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import _ from "lodash";
 import Sidebar from "./Sidebar";
+import { searchBook } from "../actions/index";
 
 class BookList extends Component {
   constructor(props) {
@@ -130,4 +131,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(BookList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchBook }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
