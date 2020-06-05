@@ -1,92 +1,91 @@
 #detail-info ul {
-    list-style: none;
-    display: inline-block;
-    padding: 0;
+  list-style: none;
+  display: inline-block;
+  padding: 0;
 }
 
 #detail-info li {
-    display: inline-block;
-    margin: .5em
+  display: inline-block;
+  margin: 0.5em;
 }
 
 #theme-header {
-    display: inline-block;
-    font-weight: bold;
-    padding: 
+  display: inline-block;
+  font-weight: bold;
 }
 
 #detail-info ul button {
-    padding: 0;
-    padding: .25em;
-    background-color: #787777;
-    border: 2px solid #6F6E6E;
+  padding: 0;
+  padding: 0.25em;
+  background-color: #787777;
+  border: 2px solid #6f6e6e;
 }
 
 #detail-info ul button:hover {
-    background-color: #4B4B4B;
-    border: 2px solid #D1D1D1;
+  background-color: #4b4b4b;
+  border: 2px solid #d1d1d1;
 }
 
 #detail-image-col img {
-    width: 100%;
-    margin: 1em auto;
-    border: solid 2px #000;
+  width: 100%;
+  margin: 1em auto;
+  border: solid 2px #000;
 }
 
 #detail-title {
-    font-weight: bold;
-    font-size: 35px;
-    margin: 10px;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 10px;
 }
 
 #detail-author {
-    font-size: 30px;
-    text-align: right;
+  font-size: 30px;
+  text-align: right;
 }
 
 #detail-description {
-    font-size: 18px;
-    text-align: justify;
+  font-size: 18px;
+  text-align: justify;
 }
 
 #detail-isbn {
-    font-size: 14px;
-    font-style: italic;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 #add-recommendation {
-    text-align: center;
+  text-align: center;
 }
 
 #add-recommendation-button {
-    margin: 10px auto;
-    padding: 1em;
-    background-color: #F5D967;
-    border: 2px solid #4B4B4B;
-    font-size: 20px;
-    color: #4B4B4B;
+  margin: 10px auto;
+  padding: 1em;
+  background-color: #f5d967;
+  border: 2px solid #4b4b4b;
+  font-size: 20px;
+  color: #4b4b4b;
 }
 
 #add-recommendation-button:hover {
-    background-color: #4B4B4B;
-    border: 2px solid #D1D1D1;
+  background-color: #4b4b4b;
+  border: 2px solid #d1d1d1;
 }
 
 #detail-recommendations {
-    background-color: rgba(75, 75, 75, .3);
-    border-radius: 10px;
-    padding: 20px;
+  background-color: rgba(75, 75, 75, 0.3);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 #detail-recommendations h3 {
-    font-size: 18px;
-    font-style: italic;
+  font-size: 18px;
+  font-style: italic;
 }
 
 #detail-recommendations p {
-    font-size: 22px;
+  font-size: 22px;
 }
