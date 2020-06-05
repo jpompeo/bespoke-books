@@ -11,6 +11,7 @@ class BookList extends Component {
     super(props);
 
     this.fetchBooks = this.fetchBooks.bind(this);
+    this.parseBooks = this.parseBooks.bind(this);
   }
 
   fetchBooks() {
@@ -34,15 +35,6 @@ class BookList extends Component {
           <Link
             to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
             <img src={book.volumeInfo.imageLinks.thumbnail} />
-            <div className="book-thumb-info">
-              <h1>{book.volumeInfo.title}</h1>
-              <p className="book-author-thumb">
-                {book.volumeInfo.authors[0] || null}
-              </p>
-              <p className="short-description">
-                {book.volumeInfo.description.substring(0, 60)}...
-              </p>
-            </div>
           </Link>
         </li>
       );
@@ -56,10 +48,11 @@ class BookList extends Component {
     // or if there have been tags or search terms, we'll show them
 
     // if there is no search term (initial page load)
-    if (!this.props.searchTerm) {
+    if (!this.props.books) {
       renderList = this.fetchBooks();
     } else {
       // if there is a search that has populated
+      console.log(this.props.books);
       renderList = this.parseBooks();
     }
 
@@ -89,7 +82,7 @@ class BookList extends Component {
 
 function mapStateToProps(state) {
   return {
-    books: state.books,
+    books: state.books[0],
     recommendations: state.recommendations,
     searchTerm: state.searchTerm,
   };

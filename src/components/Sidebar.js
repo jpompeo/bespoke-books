@@ -18,6 +18,7 @@ class Sidebar extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.handleTagSubmit = this.handleTagSubmit.bind(this);
+    this.onKeyPress = this.onKeyPress.bind(this);
   }
 
   listOfTags() {
@@ -42,6 +43,12 @@ class Sidebar extends Component {
     this.setState({ searchTerm: event.target.value });
   }
 
+  onKeyPress = (e) => {
+    if (e.which === 13) {
+      this.onFormSubmit(e);
+    }
+  };
+
   handleTagSubmit() {}
 
   render() {
@@ -50,7 +57,7 @@ class Sidebar extends Component {
         <Row>
           <Col>
             {/* Search Bar  */}
-            <Form onSubmit={this.handleTagSubmit}>
+            <Form>
               <Form.Group controlId="searchBooks">
                 <Form.Label>Search by Book</Form.Label>
                 <Form.Control
@@ -58,6 +65,7 @@ class Sidebar extends Component {
                   placeholder="Enter Title or Author"
                   value={this.state.searchTerm}
                   onChange={this.onInputChange}
+                  onKeyPress={this.onKeyPress}
                 />
               </Form.Group>
             </Form>
