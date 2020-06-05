@@ -5,12 +5,15 @@ import RecommendationForm from "./RecommendationForm";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { searchBook } from "../actions/index";
+import _ from 'lodash';
 
 class BookDetail extends Component {
   constructor(props) {
     super(props);
 
+    
     this.printBook = this.printBook.bind(this);
+    this.detailTags = this.detailTags.bind(this);
   }
 
   componentDidMount() {
@@ -18,12 +21,19 @@ class BookDetail extends Component {
   }
 
   detailTags() {
-    return this.state.book.tags.map((tag) => {
-      return (
-        <li>
-          <Button type="button">{tag}</Button>
-        </li>
-      );
+    const bookRecommendations = this.props.allRecommendations.filter(recommendation => {
+      return recommendation.id === this.props.id;
+    }); 
+  
+    return bookRecommendations.map((recommendation) => {
+      return recommendation.tags.map((tag) => {
+        return (
+          <li>
+            <Button type="button">{tag}</Button>
+          </li>
+        );
+      });
+      
     });
   }
 
@@ -52,13 +62,13 @@ class BookDetail extends Component {
           </p>
           <p id="detail-description">{this.props.description}</p>
           <p id="detail-isbn">
-            <strong>ISBN:</strong> {this.props.ISBN}
+            <strong>ISBN:</strong> {this.props.isbn}
           </p>
 
           <ul>
             <li id="theme-header">Themes:</li>
             {/* mapped list of tag names for selected book */}
-            {this.detailTags}
+            {this.detailTags()}
           </ul>
         </Col>
 
@@ -116,10 +126,12 @@ function mapStateToProps(state, ownProps) {
       image: state.book[0].volumeInfo.imageLinks.thumbnail,
       isbn: state.book[0].volumeInfo.industryIdentifiers[0].identifier,
       id: ownProps.match.params.id,
+      allRecommendations: state.recommendations
     };
   } else {
     return {
       id: ownProps.match.params.id,
+      allRecommendations: state.recommendations
     };
   }
 }
