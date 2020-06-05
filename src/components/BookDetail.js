@@ -21,6 +21,13 @@ const BookDetail = () => {
         ISBN: "9781781100509",
         tags: ["Friendship"],
       },
+      {
+        user: "Pierre",
+        text:
+          "Despite not normally being a fan of fantasy, I loved the friendship between Harry, Ron, and Hermione.",
+        ISBN: "9781781100509",
+        tags: ["Friendship"],
+      },
     ],
   };
 
@@ -48,7 +55,7 @@ const BookDetail = () => {
 
   return (
     <Row id="main" className="justify-content-md-center">
-      <Col lg={8}>
+      <Col lg={10}>
         <Container id="book-detail">
           <Row>
             {/* Book Detail Info */}

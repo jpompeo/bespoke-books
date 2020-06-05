@@ -26,8 +26,12 @@
   border: 2px solid #d1d1d1;
 }
 
+#detail-image-col {
+  text-align: center;
+}
+
 #detail-image-col img {
-  width: 100%;
+  width: 70%;
   margin: 1em auto;
   border: solid 2px #000;
 }
@@ -75,10 +79,11 @@
   border: 2px solid #d1d1d1;
 }
 
-#detail-recommendations {
-  background-color: rgba(75, 75, 75, 0.3);
+.detail-recommendation {
   border-radius: 10px;
+  background-color: rgba(75, 75, 75, 0.3);
   padding: 20px;
+  margin-top: 20px;
 }
 
 #detail-recommendations h3 {
