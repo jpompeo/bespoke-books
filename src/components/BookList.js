@@ -24,15 +24,17 @@ class BookList extends Component {
 
     let filteredBooks = uniqueBooks.filter((book) => {
       // if there is a match between given tag & book's tags array
-
+      // difference will compare a subset to a superset, and having 0 differences
+      // means that that all elements of chosenTags are present in book's tags
       if (
-        _.includes(book.tags, this.props.chosenTags) ||
+        _.difference(this.props.chosenTags, book.tags).length === 0 ||
         this.props.chosenTags === ""
       ) {
         return true;
       }
     });
 
+    console.log("The chosen tags are ", this.props.chosenTags);
     console.log("The filtered books are", filteredBooks);
 
     // get all the unique books
