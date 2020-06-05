@@ -1,0 +1,37 @@
+const tagsReducer = () => {
+  return [
+    "Adventure",
+    "Belief",
+    "Forgiveness",
+    "Decisions",
+    "Death & Dying",
+    "Love",
+    "Acceptance",
+    "Courage",
+    "Change",
+    "Empathy",
+    "Overcoming Adversity",
+    "Pressure",
+    "Friendship",
+    "Sacrifice",
+    "The Bonds of Family",
+    "Suffering",
+    "Conflict",
+    "Abandonment",
+    "Alienation",
+    "Ambition",
+    "Coming of Age",
+    "Freedom",
+    "Gender",
+    "Justice",
+    "Isolation",
+    "Cruelty",
+    "Fate",
+    "Hope",
+    "Guilt",
+    "Black Lives Matter",
+    "LGBTQ Pride",
+  ];
+};
+
+export default tagsReducer;
