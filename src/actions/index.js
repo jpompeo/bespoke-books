@@ -7,7 +7,7 @@ export const SEARCH_BOOKS = "SEARCH_BOOKS";
 export const SEND_TAGS = "SEND_TAGS";
 
 export function searchBooks(term) {
-  const url = `${ROOT_URL}&q=${term}`;
+  const url = `${ROOT_URL}&q=${term}&maxResults=25`;
   const request = axios.get(url);
 
   request.then(console.log("HI!!!!"));
