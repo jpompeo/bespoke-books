@@ -27,30 +27,42 @@ class BookList extends Component {
     });
   }
 
-  /*
-  const parseBooks = () => {
-    
-    books.items.map(book => {
-
+  parseBooks() {
+    return this.props.books.items.map((book) => {
       return (
         <li className="book-container">
-          <Link to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
+          <Link
+            to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
             <img src={book.volumeInfo.imageLinks.thumbnail} />
             <div className="book-thumb-info">
               <h1>{book.volumeInfo.title}</h1>
-              <p className="book-author-thumb">{book.volumeInfo.authors[0] || null}</p>
+              <p className="book-author-thumb">
+                {book.volumeInfo.authors[0] || null}
+              </p>
               <p className="short-description">
                 {book.volumeInfo.description.substring(0, 60)}...
-                  </p>
+              </p>
             </div>
           </Link>
         </li>
       );
     });
-  };
-  */
+  }
 
   render() {
+    let renderList;
+
+    // we want to decide whether to show a default (books we've had tagged)
+    // or if there have been tags or search terms, we'll show them
+
+    // if there is no search term (initial page load)
+    if (!this.props.searchTerm) {
+      renderList = this.fetchBooks();
+    } else {
+      // if there is a search that has populated
+      renderList = this.parseBooks();
+    }
+
     return (
       <div id="book-list">
         <h1>BookList</h1>
@@ -66,7 +78,7 @@ class BookList extends Component {
           <Row className="noGutters">
             <ul className="list-covers">
               {/* {parseBooks()} */}
-              {this.fetchBooks()}
+              {renderList}
             </ul>
           </Row>
         </div>
@@ -76,7 +88,11 @@ class BookList extends Component {
 }
 
 function mapStateToProps(state) {
-  return { books: state.books, recommendations: state.recommendations };
+  return {
+    books: state.books,
+    recommendations: state.recommendations,
+    searchTerm: state.searchTerm,
+  };
 }
 
 export default connect(mapStateToProps)(BookList);
