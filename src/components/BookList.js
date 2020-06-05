@@ -38,7 +38,7 @@ class BookList extends Component {
     // from those unique books, filter based on tag
     return filteredBooks.map((book) => {
       return (
-        <li className="book-container">
+        <li className="book-container" key={book.ISBN}>
           <Link to={`/books/${book.ISBN}`}>
             <img src={book.image} />
           </Link>
