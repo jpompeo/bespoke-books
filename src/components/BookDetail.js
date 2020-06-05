@@ -47,52 +47,58 @@ const BookDetail = () => {
   });
 
   return (
-    <Container id="book-detail">
-      <Row>
-        {/* Book Detail Info */}
-        <Col id="detail-info">
-          <h1 id="detail-title">{book.title}</h1>
-          <p id="detail-author">
-            <em>by</em> {book.author}
-          </p>
-          <p id="detail-description">{book.description}</p>
-          <p id="detail-isbn">
-            <strong>ISBN:</strong> {book.isbn}
-          </p>
+    <Row id="main" className="justify-content-md-center">
+      <Col lg={8}>
+        <Container id="book-detail">
+          <Row>
+            {/* Book Detail Info */}
+            <Col lg={6} id="detail-info">
+              <h1 id="detail-title">{book.title}</h1>
+              <p id="detail-author">
+                <em>by</em> {book.author}
+              </p>
+              <p id="detail-description">{book.description}</p>
+              <p id="detail-isbn">
+                <strong>ISBN:</strong> {book.isbn}
+              </p>
 
-          <ul>
-            <li id="theme-header">Themes:</li>
-            {/* mapped list of tag names for selected book */}
-            {detailTags}
-          </ul>
-        </Col>
+              <ul>
+                <li id="theme-header">Themes:</li>
+                {/* mapped list of tag names for selected book */}
+                {detailTags}
+              </ul>
+            </Col>
 
-        {/* Book Detail Image */}
-        <Col id="detail-image-col">
-          <img src={book.image} alt={`Cover of ${book.title}`} />
+            {/* Book Detail Image */}
+            <Col lg={6} id="detail-image-col">
+              <img src={book.image} alt={`Cover of ${book.title}`} />
 
-          {/* Add recommendation Button  */}
-          <div id="add-recommendation">
-            <Button id="add-recommendation-button">Recommend This Book</Button>
-          </div>
-        </Col>
-      </Row>
+              {/* Add recommendation Button  */}
+              <div id="add-recommendation">
+                <Button id="add-recommendation-button">
+                  Recommend This Book
+                </Button>
+              </div>
+            </Col>
+          </Row>
 
-      <Row>
-        <Col>
-          <hr />
-          {/* Form to Add Recommendations (hidden by default) */}
-          {/* <div className="hide"> */}
-          <RecommendationForm />
-          {/* </div> */}
+          <Row>
+            <Col>
+              <hr />
+              {/* Form to Add Recommendations (hidden by default) */}
+              {/* <div className="hide"> */}
+              <RecommendationForm />
+              {/* </div> */}
 
-          {/* List of recommendations for current book */}
-          <div id="detail-recommendations">{detailRecommendations}</div>
+              {/* List of recommendations for current book */}
+              <div id="detail-recommendations">{detailRecommendations}</div>
 
-          <hr />
-        </Col>
-      </Row>
-    </Container>
+              <hr />
+            </Col>
+          </Row>
+        </Container>
+      </Col>
+    </Row>
   );
 };
 

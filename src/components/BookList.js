@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import _ from "lodash";
+import Sidebar from "./Sidebar";
 
 class BookList extends Component {
   constructor(props) {
@@ -79,25 +80,32 @@ class BookList extends Component {
     }
 
     return (
-      <div id="book-list">
-        <h1>BookList</h1>
+      <Row id="main">
+        <Col lg={3} className="left-side">
+          <Sidebar />
+        </Col>
+        <Col lg={9} className="right-side">
+          <div id="book-list">
+            <h1>BookList</h1>
 
-        <div className="filters-applied">
-          Filters Applied:{" "}
-          <Button variant="outline-dark" size="sm" className="filter">
-            Adventure X
-          </Button>
-        </div>
+            <div className="filters-applied">
+              Filters Applied:{" "}
+              <Button variant="outline-dark" size="sm" className="filter">
+                Adventure X
+              </Button>
+            </div>
 
-        <div className="flex-container">
-          <Row className="noGutters">
-            <ul className="list-covers">
-              {/* {parseBooks()} */}
-              {renderList}
-            </ul>
-          </Row>
-        </div>
-      </div>
+            <div className="flex-container">
+              <Row className="noGutters">
+                <ul className="list-covers">
+                  {/* {parseBooks()} */}
+                  {renderList}
+                </ul>
+              </Row>
+            </div>
+          </div>
+        </Col>
+      </Row>
     );
   }
 }
