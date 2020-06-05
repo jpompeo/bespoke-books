@@ -38,7 +38,11 @@ class BookDetail extends Component {
   }
 
   detailRecommendations() {
-    return this.state.book.recommendations.map((recommendation) => {
+    const bookRecommendations = this.props.allRecommendations.filter(recommendation => {
+      return recommendation.id === this.props.id;
+    }); 
+    
+    return bookRecommendations.map((recommendation) => {
       return (
         <div className="detail-recommendation">
           <h3>
@@ -101,7 +105,7 @@ class BookDetail extends Component {
 
                 {/* List of recommendations for current book */}
                 <div id="detail-recommendations">
-                  {this.detailRecommendations}
+                  {this.detailRecommendations()}
                 </div>
 
                 <hr />
