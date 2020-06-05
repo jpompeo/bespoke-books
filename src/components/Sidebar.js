@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { searchBook } from "../actions/index";
+import { searchBooks } from "../actions/index";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Sidebar extends Component {
   listOfTags() {
     return this.props.tags.map((tag) => {
       return (
-        <li>
+        <li key={tag}>
           <Button type="button" onClick={this.handleSearchSubmit}>
             {tag}
           </Button>
@@ -34,7 +34,7 @@ class Sidebar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.searchBook(this.state.searchTerm);
+    this.props.searchBooks(this.state.searchTerm);
     this.setState({ searchTerm: "" });
   }
 
@@ -83,7 +83,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBook }, dispatch);
+  return bindActionCreators({ searchBooks }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
