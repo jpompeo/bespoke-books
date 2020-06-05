@@ -1,56 +1,27 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Multiselect from "react-widgets/lib/Multiselect";
+import { connect } from "react-redux";
+import { sendRecommendation } from "../actions/index";
+import { storeRecommendation } from "../actions/index";
+import { bindActionCreators } from "redux";
+import { getFormValues } from "redux-form";
 
 import "../css/RecommendationForm.css";
 import "react-widgets/dist/css/react-widgets.css";
 
-let state = {
-  tagList: [
-    "Adventure",
-    "Belief",
-    "Forgiveness",
-    "Decisions",
-    "Death & Dying",
-    "Love",
-    "Acceptance",
-    "Courage",
-    "Change",
-    "Empathy",
-    "Overcoming Adversity",
-    "Pressure",
-    "Friendship",
-    "Sacrifice",
-    "The Bonds of Family",
-    "Suffering",
-    "Conflict",
-    "Abandonment",
-    "Alienation",
-    "Ambition",
-    "Coming of Age",
-    "Freedom",
-    "Gender",
-    "Justice",
-    "Isolation",
-    "Cruelty",
-    "Fate",
-    "Hope",
-    "Guilt",
-    "Black Lives Matter",
-    "LGBTQ Pride",
-  ],
+const renderMultiselect = ({ input, data, valueField, textField }) => {
+  return (
+    <Multiselect
+      {...input}
+      onBlur={() => input.onBlur()}
+      value={input.value || []} // requires value to be an array
+      data={data}
+      valueField={valueField}
+      textField={textField}
+    />
+  );
 };
-
-const renderMultiselect = ({ input, data, valueField, textField }) => (
-  <Multiselect
-    {...input}
-    onBlur={() => input.onBlur()}
-    value={input.value || []} // requires value to be an array
-    data={data}
-    valueField={valueField}
-    textField={textField}
-  />
-);
 
 let RecommendationForm = (props) => {
   // used later by redux-form in render
@@ -71,9 +42,13 @@ let RecommendationForm = (props) => {
 
   const { handleSubmit } = props;
 
+  const onSubmit = (values) => {
+    props.storeRecommendation(props.formStates, props.id, props.image);
+  };
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit.bind(this))}>
         <Field
           label="Why do you recommend this book?"
           name="text"
@@ -83,11 +58,7 @@ let RecommendationForm = (props) => {
 
         <div>
           <label>tags</label>
-          <Field
-            name="tags"
-            component={renderMultiselect}
-            data={[...state.tagList]}
-          />
+          <Field name="tags" component={renderMultiselect} data={props.tags} />
         </div>
 
         <button type="submit" className="btn btn-primary">
@@ -122,4 +93,26 @@ RecommendationForm = reduxForm({
   form: "RecommendationForm",
 })(RecommendationForm);
 
-export default RecommendationForm;
+function mapStateToProps(state) {
+  if (state.book[0]) {
+    return {
+      id: state.book[0].id,
+      image: state.book[0].volumeInfo.imageLinks.thumbnail,
+      tags: state.tags,
+      formStates: getFormValues("RecommendationForm")(state),
+    };
+  } else {
+    return {
+      tags: state.tags,
+    };
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { sendRecommendation, storeRecommendation },
+    dispatch
+  );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecommendationForm);

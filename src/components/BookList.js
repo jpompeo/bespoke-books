@@ -21,8 +21,6 @@ class BookList extends Component {
 
     const uniqueBooks = _.uniqBy(this.props.recommendations, "id");
 
-    console.log(uniqueBooks);
-
     let filteredBooks = uniqueBooks.filter((book) => {
       // if there is a match between given tag & book's tags array
       // difference will compare a subset to a superset, and having 0 differences
@@ -34,9 +32,6 @@ class BookList extends Component {
         return true;
       }
     });
-
-    console.log("The chosen tags are ", this.props.chosenTags);
-    console.log("The filtered books are", filteredBooks);
 
     // get all the unique books
     // from those unique books, filter based on tag
@@ -87,11 +82,13 @@ class BookList extends Component {
     // or if there have been tags or search terms, we'll show them
 
     // if there is no search term (initial page load)
-    if (!this.props.books || this.props.chosenTags) {
+    console.log("The chosen tags is", this.props.chosenTags);
+
+    if (!this.props.books) {
       renderList = this.fetchBooks();
     } else {
       // if there is a search that has populated
-      console.log(this.props.books);
+      console.log("The books array is", this.props.books);
       renderList = this.renderBooksFromSearch();
     }
 
@@ -122,7 +119,6 @@ class BookList extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     books: state.books[0],
     recommendations: state.recommendations,

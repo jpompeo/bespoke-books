@@ -53,7 +53,6 @@ class Sidebar extends Component {
     // check for presence of clicked tag
     // if it has been clicked before, remove from state
     // if it hasn't been clicked, add this tag to state
-    console.log("got clicked?!? ", tag);
     this.props.sendTags(tag);
   }
 

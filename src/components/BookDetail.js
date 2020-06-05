@@ -11,9 +11,13 @@ class BookDetail extends Component {
   constructor(props) {
     super(props);
 
-    
+    this.state = {
+      showForm: false
+    }
+
     this.printBook = this.printBook.bind(this);
     this.detailTags = this.detailTags.bind(this);
+    this.showFormContainer = this.showFormContainer.bind(this);
   }
 
   componentDidMount() {
@@ -23,8 +27,8 @@ class BookDetail extends Component {
   detailTags() {
     const bookRecommendations = this.props.allRecommendations.filter(recommendation => {
       return recommendation.id === this.props.id;
-    }); 
-  
+    });
+
     return bookRecommendations.map((recommendation) => {
       return recommendation.tags.map((tag) => {
         return (
@@ -33,12 +37,16 @@ class BookDetail extends Component {
           </li>
         );
       });
-      
+
     });
   }
 
   detailRecommendations() {
-    return this.state.book.recommendations.map((recommendation) => {
+    const bookRecommendations = this.props.allRecommendations.filter(recommendation => {
+      return recommendation.id === this.props.id;
+    });
+
+    return bookRecommendations.map((recommendation) => {
       return (
         <div className="detail-recommendation">
           <h3>
@@ -49,6 +57,14 @@ class BookDetail extends Component {
         </div>
       );
     });
+  }
+
+  showFormContainer() {
+   if (this.state.showForm === false) {
+     return "hide"
+   } else {
+     return ""
+   }
   }
 
   printBook() {
@@ -79,7 +95,11 @@ class BookDetail extends Component {
 
           {/* Add recommendation Button  */}
           <div id="add-recommendation">
-            <Button id="add-recommendation-button">Recommend This Book</Button>
+            <Button id="add-recommendation-button"
+              onClick={event => {
+                this.setState({showForm: true});
+              }}>
+              Recommend This Book</Button>
           </div>
         </Col>
       </Row>
@@ -91,18 +111,18 @@ class BookDetail extends Component {
       <Row id="main" className="justify-content-md-center">
         <Col lg={10}>
           <Container id="book-detail">
-            {this.printBook()};
+            {this.printBook()}
             <Row>
               <Col>
                 <hr />
                 {/* Form to Add Recommendations (hidden by default) */}
-                {/* <div className="hide"> */}
-                <RecommendationForm />
-                {/* </div> */}
+                <div id="recommendation-form-container" className={this.showFormContainer()}>
+                  <RecommendationForm />
+                </div>
 
                 {/* List of recommendations for current book */}
                 <div id="detail-recommendations">
-                  {this.detailRecommendations}
+                  {this.detailRecommendations()}
                 </div>
 
                 <hr />
@@ -116,7 +136,7 @@ class BookDetail extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log("state is", state.book[0]);
+  
 
   if (state.book[0]) {
     return {
