@@ -5,6 +5,7 @@ const ROOT_URL = `https://www.googleapis.com/books/v1/volumes`;
 
 export const SEARCH_BOOKS = "SEARCH_BOOKS";
 export const SEARCH_BOOK = "SEARCH_BOOK";
+export const EMPTY_BOOKS = "EMPTY_BOOKS";
 export const SEND_TAGS = "SEND_TAGS";
 export const SEND_RECOMMENDATION = "SEND_RECOMMENDATION";
 export const STORE_RECOMMENDATION = "STORE_RECOMMENDATION";
@@ -17,6 +18,15 @@ export function searchBooks(term) {
 
   return {
     type: SEARCH_BOOKS,
+    payload: request,
+  };
+}
+
+export function emptyBooks() {
+  const request = [];
+
+  return {
+    type: EMPTY_BOOKS,
     payload: request,
   };
 }
