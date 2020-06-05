@@ -94,7 +94,6 @@ RecommendationForm = reduxForm({
 })(RecommendationForm);
 
 function mapStateToProps(state) {
-  console.log("STATES ARE ", state);
   if (state.book[0]) {
     return {
       id: state.book[0].id,

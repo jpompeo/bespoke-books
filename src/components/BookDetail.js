@@ -135,7 +135,7 @@ class BookDetail extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log("state is", state.book[0]);
+  
 
   if (state.book[0]) {
     return {

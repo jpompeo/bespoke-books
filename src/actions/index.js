@@ -10,7 +10,7 @@ export const SEND_RECOMMENDATION = "SEND_RECOMMENDATION";
 export const STORE_RECOMMENDATION = "STORE_RECOMMENDATION";
 
 export function searchBooks(term) {
-  const url = `?${ROOT_URL}&q=${term}&maxResults=25`;
+  const url = `${ROOT_URL}?&q=${term}&maxResults=25`;
   const request = axios.get(url);
 
   request.then(console.log("HI!!!!"));
