@@ -78,7 +78,7 @@ class Sidebar extends Component {
             <p>or</p>
 
             {/* Tag List */}
-            <h3>Select a Theme:</h3>
+            <h3>Search Recommendations by Theme:</h3>
 
             <ul>
               {/* //mapped list of tags from state  */}
