@@ -30,7 +30,7 @@ const App = () => {
         <Route exact path={["/", "/books"]} component={BookList} />
 
         {/* Single Book/Detail View */}
-        <Route path={"/books/:isbn"} component={BookDetail} />
+        <Route path={"/books/:id"} component={BookDetail} />
       </Switch>
     </Container>
   );
