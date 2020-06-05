@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { searchBook } from "../actions/index";
 import _ from 'lodash';
+import { Link } from 'react-router-dom'
 
 class BookDetail extends Component {
   constructor(props) {
@@ -60,19 +61,25 @@ class BookDetail extends Component {
   }
 
   showFormContainer() {
-   if (this.state.showForm === false) {
-     return "hide"
-   } else {
-     return ""
-   }
+    if (this.state.showForm === false) {
+      return "hide"
+    } else {
+      return ""
+    }
   }
 
   printBook() {
-  const truncatedDescription = String(this.props.description).substring(0, 300);
+    const truncatedDescription = String(this.props.description).substring(0, 300);
     return (
       <Row>
         {/* Book Detail Info */}
         <Col lg={6} id="detail-info">
+
+          {/* Back button */}
+        <Link to="/">
+          Back
+        </Link>
+
           <h1 id="detail-title">{this.props.title}</h1>
           <p id="detail-author">
             <em>by</em> {this.props.author}
@@ -97,7 +104,7 @@ class BookDetail extends Component {
           <div id="add-recommendation">
             <Button id="add-recommendation-button"
               onClick={event => {
-                this.setState({showForm: true});
+                this.setState({ showForm: true });
               }}>
               Recommend This Book</Button>
           </div>
@@ -136,7 +143,7 @@ class BookDetail extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  
+
 
   if (state.book[0]) {
     return {
