@@ -8,7 +8,7 @@ const fakeRecommendations = [
     id: "gt7EQgH8-b4C",
     tags: ["Adventure"],
     image:
-      "http://books.google.com/books/content?id=5iTebBW-w7QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "http://books.google.com/books/content?id=gt7EQgH8-b4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71FlAzmtWlR5GIQjhtDo2yUI-ddcJe0PJj3y0DejhpIU5S1HyH1tPzLdYYFZzHYBLwH8qauwqguJk0v_G5wMQHtC0T_MBQCg_H01qY4Nnank7DUB4OfJptD0t2nBgb91imQrjXd&source=gbs_api",
   },
   {
     user: "Pierre",
@@ -17,7 +17,7 @@ const fakeRecommendations = [
     id: "aDdyDwAAQBAJ",
     tags: ["Black Lives Matter", "Cruelty"],
     image:
-      "http://books.google.com/books/content?id=5iTebBW-w7QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "http://books.google.com/books/content?id=aDdyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71vgZ-6NgyiqenGIPM2mE5GPjPGoiCFxKYod1Hs4G8UybJ5keEP_6L4firJEbSaGtVOQ4sO-JcN29A5IkIFFVl6GQAL8ok1P_2cGNO6k6ldoo7vgT-Q5SMTEaOMJMSYlXuCm5df&source=gbs_api",
   },
   {
     user: "Pierre",
@@ -35,7 +35,7 @@ const fakeRecommendations = [
     id: "T8HCsVVqcHcC",
     tags: ["Decisions"],
     image:
-      "http://books.google.com/books/content?id=5iTebBW-w7QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "http://books.google.com/books/content?id=T8HCsVVqcHcC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73IXWwXqJd1WCiML542yhFQ5I38fiL_soSG3HL0xxTK9dbUag0GtRocW5iWoZ8LfynN2xZ78ppgbbx1I5monszJ2MLdeRhAJAPaaK6zPscWnLWe9Ka9iZGsg4MCWMUsNQhc4GNo&source=gbs_api",
   },
 ];
 
