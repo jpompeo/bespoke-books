@@ -1,39 +1,43 @@
 #sidebar {
-    padding: .7em;
+  padding: 0.7em;
 }
 
 #sidebar ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }
 
 #sidebar li {
-    display: inline-block;
-    margin: .2em .1em;
+  display: inline-block;
+  margin: 0.2em 0.1em;
 }
 
 #sidebar button {
-    padding: 0;
-    padding: .25em;
-    background-color: #787777;
-    border: 2px solid #6F6E6E;
+  padding: 0;
+  padding: 0.25em;
+  background-color: #787777;
+  border: 2px solid #6f6e6e;
 }
 
 #sidebar button:hover {
-    background-color: #4B4B4B;
-    border: 2px solid #D1D1D1;
+  background-color: #4b4b4b;
+  border: 2px solid #d1d1d1;
 }
 
 #sidebar p {
-    text-align: center;
-    font-style: italic;
-    font-size: 20px;
+  text-align: center;
+  font-style: italic;
+  font-size: 20px;
 }
 
-#sidebar h3, 
+#sidebar h3,
 #sidebar Label {
-    font-weight: bold;
-    font-size: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
 
+#sidebar Label {
+  text-align: center;
+  font-size: 16px;
 }

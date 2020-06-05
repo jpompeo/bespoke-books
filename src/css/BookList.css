@@ -43,7 +43,11 @@ ul.list-covers {
 }
 
 .filters-applied {
-  display: none;
+  /* display: none; */
+}
+
+.filters-applied button {
+  margin-right: 5px;
 }
 
 .filter {

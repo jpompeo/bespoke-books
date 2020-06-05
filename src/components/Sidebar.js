@@ -65,7 +65,7 @@ class Sidebar extends Component {
             {/* Search Bar  */}
             <Form>
               <Form.Group controlId="searchBooks">
-                <Form.Label>Search by Book</Form.Label>
+                <Form.Label>Leave a recommendation!</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Title or Author"

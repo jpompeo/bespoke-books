@@ -66,6 +66,20 @@ class BookList extends Component {
     });
   }
 
+  renderCurrentFilters() {
+    return this.props.chosenTags.map((tag) => {
+      return (
+        <Button
+          variant="outline-dark"
+          size="sm"
+          className="filter"
+          key={`${tag}display`}>
+          {tag}
+        </Button>
+      );
+    });
+  }
+
   render() {
     let renderList;
 
@@ -88,13 +102,8 @@ class BookList extends Component {
         </Col>
         <Col lg={9} className="right-side">
           <div id="book-list">
-            <h1>BookList</h1>
-
             <div className="filters-applied">
-              Filters Applied:{" "}
-              <Button variant="outline-dark" size="sm" className="filter">
-                Adventure X
-              </Button>
+              Filters Applied: {this.renderCurrentFilters()}
             </div>
 
             <div className="flex-container">
