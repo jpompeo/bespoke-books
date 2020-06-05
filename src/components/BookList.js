@@ -81,6 +81,7 @@ class BookList extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     books: state.books[0],
     recommendations: state.recommendations,
