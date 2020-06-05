@@ -37,6 +37,39 @@ const fakeRecommendations = [
     image:
       "http://books.google.com/books/content?id=T8HCsVVqcHcC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73IXWwXqJd1WCiML542yhFQ5I38fiL_soSG3HL0xxTK9dbUag0GtRocW5iWoZ8LfynN2xZ78ppgbbx1I5monszJ2MLdeRhAJAPaaK6zPscWnLWe9Ka9iZGsg4MCWMUsNQhc4GNo&source=gbs_api",
   },
+  {
+    user: "Pierre",
+    text:
+      "The friendships in this book are so true to life that I couldn't put it down..",
+    id: "NF5BDwAAQBAJ",
+    tags: ["Friendship", "Isolation"],
+    image:
+      "http://books.google.com/books/content?id=NF5BDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE714OWevtf_wEwoUj0b4ck4oCwO8Ey0G4uyRYpBovuLEQ_ZRXh4LVgiqu8QJFryzOFIdKzYfeyZ51pW0rgSCl9qsIa6hDsJVu10Zut2-L5a9Fb2d7a5KA0x2H-_8U7iKlmiuI0za&source=gbs_api",
+  },
+  {
+    user: "Pierre",
+    text: "I've never thought about the Vietnam War the same way",
+    id: "dYYVBgAAQBAJ",
+    tags: ["Cruelty"],
+    image:
+      "http://books.google.com/books/content?id=dYYVBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73FqJf8oB13BtXIe9Lrn_5fO383qoBRKtY56NljTGXqRF53mBNyzpLrKSBuyq410prNbiyrFg1qfK7QczY0apInvp9BLQccbOxt_xtVG3Y_Q0QnL_F9vluHOIQsT1vWNatvzM2x&source=gbs_api",
+  },
+  {
+    user: "Pierre",
+    text: "This book has amazing ways to connect with people.",
+    id: "K1fRBAAAQBAJ",
+    tags: ["Empathy", "The Bonds of Family", "Love"],
+    image:
+      "http://books.google.com/books/content?id=K1fRBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70mmeoB0VcluBypUqqk7vZ_jRdBILgBUjn_ezzh2EGg3kquhIKlQ_M3owyru8h2PojrxfIvWoWkO6KfcQLrLV6Umt6kKSfOKaNZ9B36os8h0_9BN1uNIy2WDY3F3KJQbIJ1JeLI&source=gbs_api",
+  },
+  {
+    user: "Pierre",
+    text: "I attribute so much of my success to this book!.",
+    id: "4QTzCAAAQBAJ",
+    tags: ["Hope"],
+    image:
+      "http://books.google.com/books/content?id=4QTzCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72SLZwmjWqN3X_I3uEWgRFe3u8b2uUEaciR9AZE0wvSu2oxX5xkxteS7xJ1fgDoqIV6WRfENUfiz6-E0Lr_78hKZ2QvqLXJAdperld3vs9A3nMNaX_c-nHjwBwPtrVzVh8IX4eg&source=gbs_api",
+  },
 ];
 
 export const tagsReducer = () => {
