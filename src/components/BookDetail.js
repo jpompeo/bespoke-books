@@ -68,6 +68,7 @@ class BookDetail extends Component {
   }
 
   printBook() {
+  const truncatedDescription = String(this.props.description).substring(0, 300);
     return (
       <Row>
         {/* Book Detail Info */}
@@ -76,7 +77,7 @@ class BookDetail extends Component {
           <p id="detail-author">
             <em>by</em> {this.props.author}
           </p>
-          <p id="detail-description">{this.props.description}</p>
+          <p id="detail-description">{truncatedDescription}...</p>
           <p id="detail-isbn">
             <strong>ISBN:</strong> {this.props.isbn}
           </p>
