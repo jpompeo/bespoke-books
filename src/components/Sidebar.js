@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { searchBooks } from "../actions/index";
+import { searchBooks, sendTags } from "../actions/index";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Sidebar extends Component {
     return this.props.tags.map((tag) => {
       return (
         <li key={tag}>
-          <Button type="button" onClick={this.handleSearchSubmit}>
+          <Button type="button" onClick={() => this.props.sendTags(tag)}>
             {tag}
           </Button>
         </li>
@@ -49,7 +49,13 @@ class Sidebar extends Component {
     }
   };
 
-  handleTagSubmit() {}
+  handleTagSubmit(tag) {
+    // check for presence of clicked tag
+    // if it has been clicked before, remove from state
+    // if it hasn't been clicked, add this tag to state
+    console.log("got clicked?!? ", tag);
+    this.props.sendTags(tag);
+  }
 
   render() {
     return (
@@ -91,7 +97,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBooks }, dispatch);
+  return bindActionCreators({ searchBooks, sendTags }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

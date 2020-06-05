@@ -15,9 +15,29 @@ class BookList extends Component {
   }
 
   fetchBooks() {
+    // check if any tags were passed
+
     const uniqueBooks = _.uniqBy(this.props.recommendations, "ISBN");
 
-    return uniqueBooks.map((book) => {
+    console.log(uniqueBooks);
+
+    let filteredBooks = uniqueBooks.filter((book) => {
+      // if there is a match between given tag & book's tags array
+      if (
+        _.includes(book.tags, this.props.chosenTags) ||
+        this.props.chosenTags === ""
+      ) {
+        return true;
+      }
+    });
+
+    console.log("The filtered books are", filteredBooks);
+
+    // get all the unique books
+    // from those unique books, filter based on tags
+    //
+
+    return filteredBooks.map((book) => {
       return (
         <li className="book-container">
           <Link to={`/books/${book.ISBN}`}>
@@ -86,6 +106,7 @@ function mapStateToProps(state) {
     books: state.books[0],
     recommendations: state.recommendations,
     searchTerm: state.searchTerm,
+    chosenTags: state.chosenTags,
   };
 }
 
