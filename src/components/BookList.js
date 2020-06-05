@@ -11,7 +11,7 @@ class BookList extends Component {
     super(props);
 
     this.fetchBooks = this.fetchBooks.bind(this);
-    this.parseBooks = this.parseBooks.bind(this);
+    this.renderBooksFromSearch = this.renderBooksFromSearch.bind(this);
   }
 
   fetchBooks() {
@@ -23,6 +23,7 @@ class BookList extends Component {
 
     let filteredBooks = uniqueBooks.filter((book) => {
       // if there is a match between given tag & book's tags array
+
       if (
         _.includes(book.tags, this.props.chosenTags) ||
         this.props.chosenTags === ""
@@ -34,9 +35,7 @@ class BookList extends Component {
     console.log("The filtered books are", filteredBooks);
 
     // get all the unique books
-    // from those unique books, filter based on tags
-    //
-
+    // from those unique books, filter based on tag
     return filteredBooks.map((book) => {
       return (
         <li className="book-container">
@@ -48,16 +47,19 @@ class BookList extends Component {
     });
   }
 
-  parseBooks() {
+  renderBooksFromSearch() {
     return this.props.books.items.map((book) => {
-      return (
-        <li className="book-container">
-          <Link
-            to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
-            <img src={book.volumeInfo.imageLinks.thumbnail} />
-          </Link>
-        </li>
-      );
+      // we only want books with pretty covers
+      if (book.volumeInfo.hasOwnProperty("imageLinks")) {
+        return (
+          <li className="book-container">
+            <Link
+              to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
+              <img src={book.volumeInfo.imageLinks.thumbnail} />
+            </Link>
+          </li>
+        );
+      }
     });
   }
 
@@ -68,12 +70,12 @@ class BookList extends Component {
     // or if there have been tags or search terms, we'll show them
 
     // if there is no search term (initial page load)
-    if (!this.props.books) {
+    if (!this.props.books || this.props.chosenTags) {
       renderList = this.fetchBooks();
     } else {
       // if there is a search that has populated
       console.log(this.props.books);
-      renderList = this.parseBooks();
+      renderList = this.renderBooksFromSearch();
     }
 
     return (
